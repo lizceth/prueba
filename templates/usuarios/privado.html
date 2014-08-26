@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block titulo %}Bienvenido{% endblock %}
+{% block contenido %}
+	<h4>Bienvenido {{usuario.username|upper}}, 
+		la última vez que ingreso al sistema fue el {{usuario.last_login}}.</h4>
+    <p>Es miembro desde el {{usuario.date_joined}}</p>      
+    <table >
+        <thead> <a href='/sesion' type="button" class='btn btn-info'>
+                ir a sistema >></a></thead>  
+        <td>
+        <tbody><a href='/usuarios'type='button' class='btn btn-primary'>
+                todos los usuario</a></tbody> <td>
+</table>
+{% endblock %}

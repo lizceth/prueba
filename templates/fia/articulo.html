@@ -1,0 +1,28 @@
+{% extends "base_principal.html" %}
+{% block contenido %}
+<table  class = "table" cellspacing = '0'>
+        <thead>
+            <th>Titulo del articulo</th>
+            <th>Contenido </th>
+            <th>Fecha de piblicacion </th>
+            <th>Categoria</th>
+        </thead>
+        <tbody>
+            {% for articulo in articulos %}
+            <tr class="success">
+                <td>{{articulo.titulo}}</td>
+                <td>{{articulo.contenido}}</td>
+                <td>{{articulo.fecha_pub}}</td>
+                <td>{{articulo.categoria}}</td>
+                <td> <a href="/editar/articulo/{{articulo.id}}"class = "btn btn-success" >Editar</a></td>
+                <td> <a href="/borrar/articulo/{{articulo.id}}"class = "btn
+                        btn-danger" >Borrar</a></td>
+            {% empty %}
+            <tr>
+                <td> No hay Articulos Disponibles </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/agregar/articulo/"class = "btn btn-primary" >Agregar</a>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block titulo %} Usuarios registrados {% endblock %}
+
+{% block contenido %}    
+<table class="table table-striped">
+    <thead>
+        <th>usuario</th>
+    </thead>
+    <tbody> 
+
+        {% for usuario in usuarios %}
+        <tr class='success'>
+        <td>{{usuario.username}}</td> 
+        <td><a href='/editar/{{usuario.id}}' type='button' 
+                class='btn btn-success'>editar</a></td>
+        <td><a href='/borrar/{{usuario.id}}' type='button' 
+                class='btn btn-danger'>borrar</a></td>
+    {% empty %}
+	    <li>No hay usuarios registrados, aún.</li>
+	{% endfor %}
+    </tbody>
+</table>
+
+<a href='/usuario/nuevo/' type='button' class='btn btn-primary'>
+            nuevo usuario</a> 
+{% endblock %}

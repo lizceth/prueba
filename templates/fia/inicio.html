@@ -1,0 +1,29 @@
+{% extends "base_principal.html" %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>blog FIA</title> 
+    <a href="articulos/">articulos</a>
+    <a href="autores/">autores</a>
+    <a href="ingresar/">iniciar secion</a>
+</head>
+<body>
+
+    {% for articulo in articulos %} 
+    <h1>
+        <a href="/detalle/{{articulo.id}}">{{articulo.titulo}}</a>
+    </h1>
+    <h2>{{articulo.contenido}}</h2>
+    <h5>{{articulo.fecha_pub}}</h5>
+    <br>
+    <h3>Comentarios:</h3>
+    {% for comentario in comentarios %}
+    <li>{{comentario.comentario}}</li>
+    <li>{{comentario.fecha}}</li>
+    {% endfor %}
+    {% empty %}
+    <li>No hay Articulos Disponibles.</li>   
+    {% endfor %}
+</body>
+</html>
+

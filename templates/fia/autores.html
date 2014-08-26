@@ -1,0 +1,28 @@
+
+<h1>Usuarios Registrados</h1>
+<table  class = "table" cellspacing = '0'>
+        <thead>
+            <th>Usuario</th>
+            <th>Nombre</th>
+            <th>Apellido paterno </th>
+            <th>E-mail </th>
+        </thead>
+        <tbody>
+            {% for autor in autores %}
+            <tr class="success">
+                <td>{{autor.usuario}}</td>
+                <td>{{autor.nombre}}</td>
+                <td>{{autor.apellido_pat}}</td>
+                <td>{{autor.E_mail}}</td>
+                <td> <a href="/editar/autor/{{autor.id}}"class = "btn btn-success" >Editar</a></td>
+                <td> <a href="/borrar/autor/{{autor.id}}"class = "btn
+                        btn-danger" >Borrar</a></td>
+            {% empty %}
+            <tr>
+                <td> No hay Autores Registrados </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/agregar/autor/"class = "btn btn-primary" >Agregar</a>
+

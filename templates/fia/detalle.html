@@ -1,0 +1,14 @@
+
+<h1>{{articulo.titulo}}</h1>
+<ul>
+    <p> {{articulo.contenido}}</p>
+    <p><strong>Fecha de publicacion:</strong> {{articulo.fecha_pub}} </p>
+    <p><strong>Categoria:</strong> {{articulo.categoria}}</p>
+    <p><strong>Publicado por:</strong> {{articulo.autor}} </p>
+    <h2>Comentarios:</h2>
+    {% for comentario in comentario %}
+    <p>{{comentario.comentario}}</p>
+    <p>comentado el :{{comentario.fecha}}</p>
+    {% endfor %}
+    <a href="/comentario/"  class="btn btn-primary">Comentar</a>
+</ul>
